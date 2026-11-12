@@ -4,7 +4,7 @@ Statički sajt (HTML/CSS/JS) za PERIL perionicu iz Novog Pazara, hostovan na Git
 
 ## Stranice
 - `index.html` – početna (HERO sa CTA za pranje tepiha + ostale usluge)
-- `pranje-tepiha.html` – kalkulator cene, cenovnik, forma za zakazivanje, FAQ
+- `pranje-tepiha.html` – jedna forma za porudžbinu (dimenzije, cena, podaci kupca), cenovnik, FAQ
 - `pranje-staklenih-povrsina.html`, `pranje-fasada.html`, `pranje-betonskih-povrsina.html`, `pranje-krovova.html` – opis, forma za upit (sa slikom), FAQ
 - `blog.html` – blog (teme u pripremi)
 

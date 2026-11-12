@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pranje tepiha Novi Pazar | 190 din/m² | Kalkulator cene | PERIL</title>
-  <meta name="description" content="Pranje tepiha u Novom Pazaru: 190 din/m², ili 220 din/m² sa preuzimanjem i dostavom. Rok 1-2 dana. Izračunajte cenu online.">
+  <title>Pranje tepiha Novi Pazar | 190 din/m² | Poručite online | PERIL</title>
+  <meta name="description" content="Pranje tepiha u Novom Pazaru: 190 din/m², ili 220 din/m² sa preuzimanjem i dostavom. Rok 1-2 dana. Izračunajte cenu i poručite online.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
@@ -43,38 +43,40 @@
 <section id="kalkulator">
   <div class="container">
     <div class="dve-kolone">
-      <div class="panel">
-        <h3>🧮 Kalkulator cene</h3>
-        <p style="color:var(--siva);margin-top:-6px">Unesite dimenzije tepiha u metrima. Možete dodati više tepiha.</p>
+      <form class="panel forma-poruka" id="porudzbina" data-usluga="Pranje tepiha" novalidate>
+        <h3 style="font-size:1.4rem">🧺 Poručite pranje tepiha</h3>
+        <p style="color:var(--siva);margin-top:-6px">Unesite dimenzije, odmah vidite cenu i pošaljite porudžbinu. Sve na jednom mestu.</p>
+
+        <div class="korak"><span class="broj-koraka">1</span> Dimenzije tepiha (u metrima)</div>
         <div class="tepisi-lista"></div>
         <button type="button" class="dodaj-tepih">+ Dodaj još jedan tepih</button>
+
+        <div class="korak"><span class="broj-koraka">2</span> Preuzimanje</div>
         <label class="kvacica">
           <input type="checkbox" id="preuzimanje">
           <span><strong>Želim da preuzmete tepih kod mene kući</strong><br><small>Preuzimanje i vraćanje na adresu: 220 din/m² umesto 190 din/m²</small></span>
         </label>
-        <div class="rezultat">
-          <div>Ukupna cena</div>
+
+        <div class="korak"><span class="broj-koraka">3</span> Vaši podaci</div>
+        <div class="red">
+          <div class="polje"><label>Ime *</label><input type="text" data-label="Ime" required></div>
+          <div class="polje"><label>Prezime *</label><input type="text" data-label="Prezime" required></div>
+        </div>
+        <div class="polje"><label>Adresa *</label><input type="text" data-label="Adresa" placeholder="Ulica i broj, mesto" required></div>
+        <div class="polje"><label>Broj telefona *</label><input type="tel" data-label="Telefon" placeholder="06x xxx xxxx" required></div>
+
+        <div class="rezultat" style="margin-bottom:16px">
+          <div>Cena vaše porudžbine</div>
           <div class="iznos" id="iznos">0 din</div>
           <div class="detalji" id="detalji"></div>
         </div>
 
-        <form class="forma-poruka" id="porudzbina" data-usluga="Pranje tepiha" novalidate hidden>
-          <h3 style="margin:24px 0 4px">Poručite pranje</h3>
-          <p style="color:var(--siva);margin-top:0">Kvadratura i cena iz kalkulatora šalju se automatski.</p>
-          <div class="red">
-            <div class="polje"><label>Ime *</label><input type="text" data-label="Ime" required></div>
-            <div class="polje"><label>Prezime *</label><input type="text" data-label="Prezime" required></div>
-          </div>
-          <div class="polje"><label>Adresa *</label><input type="text" data-label="Adresa" placeholder="Ulica i broj, mesto" required></div>
-          <div class="polje"><label>Broj telefona *</label><input type="tel" data-label="Telefon" placeholder="06x xxx xxxx" required></div>
-
         <div class="slanje">
-          <button type="submit" name="kanal" value="whatsapp" class="btn btn-wa">Pošalji preko WhatsApp-a</button>
-          <button type="submit" name="kanal" value="sms" class="btn btn-plavo">Pošalji kao SMS</button>
+          <button type="submit" name="kanal" value="whatsapp" class="btn btn-wa">Poruči preko WhatsApp-a</button>
+          <button type="submit" name="kanal" value="sms" class="btn btn-plavo">Poruči putem SMS-a</button>
         </div>
         <small class="napomena-slanje">Otvoriće se vaša aplikacija sa već napisanom porukom, samo pritisnite „Pošalji”.</small>
-        </form>
-      </div>
+      </form>
       <div>
         <h2 style="margin-top:0">Cenovnik</h2>
         <table class="cene-tabela">
@@ -104,7 +106,7 @@
     <div class="faq">
       <details>
         <summary>Koliko košta pranje tepiha?</summary>
-        <p>Pranje tepiha košta 190 din po kvadratnom metru ako tepih sami donesete, ili 220 din po kvadratnom metru ako mi dođemo po tepih i vratimo ga na vašu adresu. Tačnu cenu izračunajte u kalkulatoru iznad.</p>
+        <p>Pranje tepiha košta 190 din po kvadratnom metru ako tepih sami donesete, ili 220 din po kvadratnom metru ako mi dođemo po tepih i vratimo ga na vašu adresu. Tačnu cenu vidite u formi za porudžbinu iznad.</p>
       </details>
       <details>
         <summary>Koliki je rok isporuke?</summary>
@@ -112,11 +114,11 @@
       </details>
       <details>
         <summary>Kako izmeriti tepih?</summary>
-        <p>Izmerite dužinu i širinu tepiha metrom (bez resa) i unesite ih u kalkulator u metrima, npr. 2,5 x 1,7. Za okrugle tepihe unesite prečnik kao dužinu i širinu.</p>
+        <p>Izmerite dužinu i širinu tepiha metrom (bez resa) i unesite ih u formu u metrima, npr. 2,5 x 1,7. Za okrugle tepihe unesite prečnik kao dužinu i širinu.</p>
       </details>
       <details>
         <summary>Da li dolazite po tepih?</summary>
-        <p>Da. Ako u kalkulatoru označite opciju preuzimanja, cena je 220 din/m² i u nju je uključeno preuzimanje tepiha sa vaše adrese i vraćanje opranog tepiha.</p>
+        <p>Da. Ako u porudžbini označite opciju preuzimanja, cena je 220 din/m² i u nju je uključeno preuzimanje tepiha sa vaše adrese i vraćanje opranog tepiha.</p>
       </details>
       <details>
         <summary>Da li se skidaju fleke i neprijatni mirisi?</summary>

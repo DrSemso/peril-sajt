@@ -41,7 +41,6 @@ function initKalkulator() {
   var preuzimanje = document.getElementById("preuzimanje");
   var iznos = document.getElementById("iznos");
   var detalji = document.getElementById("detalji");
-  var porudzbina = document.getElementById("porudzbina");
   var brojac = 0;
 
   function noviTepih() {
@@ -58,7 +57,9 @@ function initKalkulator() {
     red.querySelector(".ukloni").addEventListener("click", function () {
       if (lista.children.length > 1) { red.remove(); izracunaj(); }
     });
-    red.querySelectorAll("input").forEach(function (i) { i.addEventListener("input", izracunaj); });
+    red.querySelectorAll("input").forEach(function (i) {
+      i.addEventListener("input", function () { i.classList.remove("greska"); izracunaj(); });
+    });
   }
 
   function izracunaj() {
@@ -82,7 +83,6 @@ function initKalkulator() {
       ? opis.join("\n") + "\nUkupno: " + ukupnoM2.toFixed(2).replace(".", ",") + " m² = " + formatDin(ukupno) +
         "\nPreuzimanje na adresi: " + (preuzimanje.checked ? "DA (220 din/m²)" : "NE, donosim sam (190 din/m²)")
       : "";
-    if (porudzbina) porudzbina.hidden = ukupnoM2 <= 0;
   }
 
   dodaj.addEventListener("click", function () { noviTepih(); izracunaj(); });
@@ -117,6 +117,13 @@ function initForme() {
         if (prazno && ok) { polje.focus(); ok = false; }
       });
       if (!ok) return;
+      if (forma.dataset.usluga === "Pranje tepiha" && !window.PERIL_OBRACUN) {
+        var dim = forma.querySelector(".duzina");
+        dim.classList.add("greska");
+        dim.scrollIntoView({ block: "center" });
+        dim.focus();
+        return;
+      }
 
       var usluga = forma.dataset.usluga;
       var naslov = usluga === "Pranje tepiha" ? "NOVA PORUDŽBINA – Pranje tepiha" : "NOVI UPIT – " + usluga;

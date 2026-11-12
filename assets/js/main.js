@@ -138,9 +138,17 @@ function initForme() {
       var tekst = encodeURIComponent(linije.join("\n"));
 
       var kanal = e.submitter ? e.submitter.value : "whatsapp";
-      window.location.href = kanal === "sms"
-        ? "sms:+" + BROJ_ZA_PORUKE + "?&body=" + tekst
-        : "https://wa.me/" + BROJ_ZA_PORUKE + "?text=" + tekst;
+      var waLink = "https://wa.me/" + BROJ_ZA_PORUKE + "?text=" + tekst;
+      if (kanal === "sms") {
+        window.location.href = "sms:+" + BROJ_ZA_PORUKE + "?&body=" + tekst;
+      } else if (/Android/i.test(navigator.userAgent)) {
+        // Na Androidu otvori obični WhatsApp (ne Business); ako ga nema, otvara se wa.me link
+        window.location.href = "intent://send?phone=" + BROJ_ZA_PORUKE + "&text=" + tekst +
+          "#Intent;scheme=whatsapp;package=com.whatsapp;S.browser_fallback_url=" +
+          encodeURIComponent(waLink) + ";end";
+      } else {
+        window.location.href = waLink;
+      }
     });
   });
 }

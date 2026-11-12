@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="sr-Latn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pranje tepiha Novi Pazar | 190 din/m² | Kalkulator cene | PERIL</title>
+  <meta name="description" content="Pranje tepiha u Novom Pazaru: 190 din/m², ili 220 din/m² sa preuzimanjem i dostavom. Rok 1-2 dana. Izračunajte cenu online.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="container">
+    <a href="index.html" class="logo">PER<span>IL</span></a>
+    <button class="nav-toggle" aria-label="Meni" aria-expanded="false">☰</button>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">Početna</a></li>
+        <li><a href="pranje-tepiha.html" class="aktivan">Pranje tepiha</a></li>
+        <li><a href="pranje-staklenih-povrsina.html">Staklene površine</a></li>
+        <li><a href="pranje-fasada.html">Fasade</a></li>
+        <li><a href="pranje-betonskih-povrsina.html">Betonske površine</a></li>
+        <li><a href="pranje-krovova.html">Krovovi</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero mali">
+  <div class="container">
+    <h1>Pranje tepiha u Novom Pazaru</h1>
+    <p>Dubinsko mašinsko pranje, ispiranje i sušenje. Rok isporuke 1–2 dana. Dolazimo po tepih i vraćamo ga čistog na vašu adresu.</p>
+    <div class="hero-oznake">
+      <span class="oznaka">✓ Rok isporuke 1–2 dana</span>
+      <span class="oznaka">⛔ Nedelja neradna</span>
+      <span class="oznaka">🚚 Preuzimanje na adresi</span>
+    </div>
+  </div>
+</section>
+
+<section id="kalkulator">
+  <div class="container">
+    <div class="dve-kolone">
+      <div class="panel">
+        <h3>🧮 Kalkulator cene</h3>
+        <p style="color:var(--siva);margin-top:-6px">Unesite dimenzije tepiha u metrima. Možete dodati više tepiha.</p>
+        <div class="tepisi-lista"></div>
+        <button type="button" class="dodaj-tepih">+ Dodaj još jedan tepih</button>
+        <label class="kvacica">
+          <input type="checkbox" id="preuzimanje">
+          <span><strong>Želim da preuzmete tepih kod mene kući</strong><br><small>Preuzimanje i vraćanje na adresu: 220 din/m² umesto 190 din/m²</small></span>
+        </label>
+        <div class="rezultat">
+          <div>Ukupna cena</div>
+          <div class="iznos" id="iznos">0 din</div>
+          <div class="detalji" id="detalji"></div>
+        </div>
+      </div>
+      <div>
+        <h2 style="margin-top:0">Cenovnik</h2>
+        <table class="cene-tabela">
+          <tr><td>Pranje tepiha (donosite sami)</td><td>190 din/m²</td></tr>
+          <tr><td>Pranje tepiha + preuzimanje i dostava</td><td>220 din/m²</td></tr>
+          <tr><td>Rok isporuke</td><td>1–2 dana</td></tr>
+          <tr><td>Nedelja</td><td>neradna</td></tr>
+        </table>
+        <h3>Kako izgleda pranje?</h3>
+        <ul class="lista-kvacica">
+          <li>Usisavanje i izbijanje prašine iz dubine tepiha</li>
+          <li>Mašinsko pranje profesionalnim sredstvima</li>
+          <li>Temeljno ispiranje, bez ostataka deterdženta</li>
+          <li>Ceđenje u centrifugi i sušenje u kontrolisanim uslovima</li>
+          <li>Pakovanje i dostava čistog, mirisnog tepiha</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sekcija-siva" id="zakazivanje">
+  <div class="container" style="max-width:640px">
+
+      <form class="panel" action="https://formsubmit.co/VAS-EMAIL@gmail.com" method="POST" enctype="multipart/form-data">
+        <h3>Zakažite pranje tepiha</h3>
+        <p style="color:var(--siva);margin-top:-6px">Obračun iz kalkulatora se šalje automatski. Javićemo vam se da dogovorimo preuzimanje.</p>
+        <input type="hidden" name="_subject" value="Novi upit: Pranje tepiha">
+        <input type="hidden" name="Usluga" value="Pranje tepiha">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="">
+        <input type="text" name="_honey" style="display:none">
+        <input type="hidden" name="Obracun iz kalkulatora" id="obracun-polje" value="">
+        <div class="red">
+          <div class="polje"><label for="ime">Ime *</label><input type="text" id="ime" name="Ime" required></div>
+          <div class="polje"><label for="prezime">Prezime *</label><input type="text" id="prezime" name="Prezime" required></div>
+        </div>
+        <div class="polje"><label for="telefon">Broj telefona *</label><input type="tel" id="telefon" name="Telefon" placeholder="06x xxx xxxx" required></div>
+        <div class="polje">
+          <label for="slika">Trenutna slika površine (nije obavezno)</label>
+          <input type="file" id="slika" name="attachment" accept="image/*">
+          <small>Slika nam pomaže da odmah damo tačniju procenu.</small>
+        </div>
+        <button type="submit" class="btn btn-plavo" style="width:100%">Pošalji upit</button>
+      </form>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="naslov-sekcije"><h2>Česta pitanja</h2><p>Ako ne nađete odgovor, pozovite nas na 06X XXX XXXX.</p></div>
+    <div class="faq">
+      <details>
+        <summary>Koliko košta pranje tepiha?</summary>
+        <p>Pranje tepiha košta 190 din po kvadratnom metru ako tepih sami donesete, ili 220 din po kvadratnom metru ako mi dođemo po tepih i vratimo ga na vašu adresu. Tačnu cenu izračunajte u kalkulatoru iznad.</p>
+      </details>
+      <details>
+        <summary>Koliki je rok isporuke?</summary>
+        <p>Rok je 1 do 2 radna dana. U zimskom periodu i pri velikoj gužvi sušenje može da potraje malo duže, o čemu vas obaveštavamo unapred.</p>
+      </details>
+      <details>
+        <summary>Kako izmeriti tepih?</summary>
+        <p>Izmerite dužinu i širinu tepiha metrom (bez resa) i unesite ih u kalkulator u metrima, npr. 2,5 x 1,7. Za okrugle tepihe unesite prečnik kao dužinu i širinu.</p>
+      </details>
+      <details>
+        <summary>Da li dolazite po tepih?</summary>
+        <p>Da. Ako u kalkulatoru označite opciju preuzimanja, cena je 220 din/m² i u nju je uključeno preuzimanje tepiha sa vaše adrese i vraćanje opranog tepiha.</p>
+      </details>
+      <details>
+        <summary>Da li se skidaju fleke i neprijatni mirisi?</summary>
+        <p>Pranjem se uklanja većina fleka i mirisa, uključujući i mirise kućnih ljubimaca. Kod nekih starih ili hemijskih fleka (boja, lak, kana) ne možemo garantovati potpuno uklanjanje, ali ćemo vam to reći pre pranja.</p>
+      </details>
+      <details>
+        <summary>Da li su sredstva bezbedna za decu i kućne ljubimce?</summary>
+        <p>Da. Koristimo profesionalna sredstva koja se potpuno ispiraju, pa su tepisi bezbedni za decu, bebe i ljubimce.</p>
+      </details>
+      <details>
+        <summary>Da li perete i ručno tkane tepihe, ćilime i tepihe od vune?</summary>
+        <p>Da. Vunene, ručno tkane tepihe i ćilime peremo posebnim, blažim postupkom kako bi zadržali boju i oblik.</p>
+      </details>
+      <details>
+        <summary>Da li perete i staze, otirače i prekrivače?</summary>
+        <p>Da, peremo staze, otirače, prekrivače i slične tekstilne predmete. Cena se računa po kvadratu kao i za tepihe.</p>
+      </details>
+      <details>
+        <summary>Koje je radno vreme?</summary>
+        <p>Radimo od ponedeljka do subote. Nedelja je neradna.</p>
+      </details>
+      <details>
+        <summary>Kako se plaća?</summary>
+        <p>Plaćanje je gotovinom pri preuzimanju opranog tepiha. Za firme izdajemo račun.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">PER<span>IL</span></a>
+        <p>Profesionalno pranje tepiha, staklenih površina, fasada, betonskih površina i krovova u Novom Pazaru i okolini.</p>
+      </div>
+      <div>
+        <h4>Usluge</h4>
+        <ul>
+          <li><a href="pranje-tepiha.html">Pranje tepiha</a></li>
+          <li><a href="pranje-staklenih-povrsina.html">Pranje staklenih površina</a></li>
+          <li><a href="pranje-fasada.html">Pranje fasada</a></li>
+          <li><a href="pranje-betonskih-povrsina.html">Pranje betonskih površina</a></li>
+          <li><a href="pranje-krovova.html">Pranje krovova</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li>📍 Novi Pazar</li>
+          <li>📞 <a href="tel:+3816XXXXXXXX">06X XXX XXXX</a></li>
+          <li>🕗 Pon–Sub: 08–18h</li>
+          <li>⛔ Nedelja: neradna</li>
+        </ul>
+      </div>
+    </div>
+    <div class="dno">© <span id="godina">2026</span> PERIL perionica, Novi Pazar. Sva prava zadržana.</div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -57,6 +57,23 @@
           <div class="iznos" id="iznos">0 din</div>
           <div class="detalji" id="detalji"></div>
         </div>
+
+        <form class="forma-poruka" id="porudzbina" data-usluga="Pranje tepiha" novalidate hidden>
+          <h3 style="margin:24px 0 4px">Poručite pranje</h3>
+          <p style="color:var(--siva);margin-top:0">Kvadratura i cena iz kalkulatora šalju se automatski.</p>
+          <div class="red">
+            <div class="polje"><label>Ime *</label><input type="text" data-label="Ime" required></div>
+            <div class="polje"><label>Prezime *</label><input type="text" data-label="Prezime" required></div>
+          </div>
+          <div class="polje"><label>Adresa *</label><input type="text" data-label="Adresa" placeholder="Ulica i broj, mesto" required></div>
+          <div class="polje"><label>Broj telefona *</label><input type="tel" data-label="Telefon" placeholder="06x xxx xxxx" required></div>
+
+        <div class="slanje">
+          <button type="submit" name="kanal" value="whatsapp" class="btn btn-wa">Pošalji preko WhatsApp-a</button>
+          <button type="submit" name="kanal" value="sms" class="btn btn-plavo">Pošalji kao SMS</button>
+        </div>
+        <small class="napomena-slanje">Otvoriće se vaša aplikacija sa već napisanom porukom, samo pritisnite „Pošalji”.</small>
+        </form>
       </div>
       <div>
         <h2 style="margin-top:0">Cenovnik</h2>
@@ -79,36 +96,11 @@
   </div>
 </section>
 
-<section class="sekcija-siva" id="zakazivanje">
-  <div class="container" style="max-width:640px">
 
-      <form class="panel" action="https://formsubmit.co/VAS-EMAIL@gmail.com" method="POST" enctype="multipart/form-data">
-        <h3>Zakažite pranje tepiha</h3>
-        <p style="color:var(--siva);margin-top:-6px">Obračun iz kalkulatora se šalje automatski. Javićemo vam se da dogovorimo preuzimanje.</p>
-        <input type="hidden" name="_subject" value="Novi upit: Pranje tepiha">
-        <input type="hidden" name="Usluga" value="Pranje tepiha">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="">
-        <input type="text" name="_honey" style="display:none">
-        <input type="hidden" name="Obracun iz kalkulatora" id="obracun-polje" value="">
-        <div class="red">
-          <div class="polje"><label for="ime">Ime *</label><input type="text" id="ime" name="Ime" required></div>
-          <div class="polje"><label for="prezime">Prezime *</label><input type="text" id="prezime" name="Prezime" required></div>
-        </div>
-        <div class="polje"><label for="telefon">Broj telefona *</label><input type="tel" id="telefon" name="Telefon" placeholder="06x xxx xxxx" required></div>
-        <div class="polje">
-          <label for="slika">Trenutna slika površine (nije obavezno)</label>
-          <input type="file" id="slika" name="attachment" accept="image/*">
-          <small>Slika nam pomaže da odmah damo tačniju procenu.</small>
-        </div>
-        <button type="submit" class="btn btn-plavo" style="width:100%">Pošalji upit</button>
-      </form>
-  </div>
-</section>
 
-<section id="faq">
+<section class="sekcija-siva" id="faq">
   <div class="container">
-    <div class="naslov-sekcije"><h2>Česta pitanja</h2><p>Ako ne nađete odgovor, pozovite nas na 06X XXX XXXX.</p></div>
+    <div class="naslov-sekcije"><h2>Česta pitanja</h2><p>Ako ne nađete odgovor, pozovite nas na 063 195 1501.</p></div>
     <div class="faq">
       <details>
         <summary>Koliko košta pranje tepiha?</summary>
@@ -175,7 +167,8 @@
         <h4>Kontakt</h4>
         <ul>
           <li>📍 Novi Pazar</li>
-          <li>📞 <a href="tel:+3816XXXXXXXX">06X XXX XXXX</a></li>
+          <li>📞 <a href="tel:+381631951501">063 195 1501</a></li>
+          <li>📷 <a href="https://www.instagram.com/perionicaperil/" target="_blank" rel="noopener">Instagram @perionicaperil</a></li>
           <li>🕗 Pon–Sub: 08–18h</li>
           <li>⛔ Nedelja: neradna</li>
         </ul>

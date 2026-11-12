@@ -13,10 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var god = document.getElementById("godina");
   if (god) god.textContent = new Date().getFullYear();
 
-  // Povratna adresa za forme (stranica "hvala")
-  document.querySelectorAll("input[name=_next]").forEach(function (el) {
-    el.value = new URL("hvala.html", window.location.href).href;
-  });
+  initForme();
 
   initKalkulator();
 });
@@ -44,7 +41,7 @@ function initKalkulator() {
   var preuzimanje = document.getElementById("preuzimanje");
   var iznos = document.getElementById("iznos");
   var detalji = document.getElementById("detalji");
-  var skriveno = document.getElementById("obracun-polje");
+  var porudzbina = document.getElementById("porudzbina");
   var brojac = 0;
 
   function noviTepih() {
@@ -81,15 +78,62 @@ function initKalkulator() {
     iznos.textContent = formatDin(ukupno);
     detalji.textContent = ukupnoM2.toFixed(2).replace(".", ",") + " m² × " + cena + " din/m²" +
       (preuzimanje.checked ? " (sa preuzimanjem i dostavom)" : " (bez preuzimanja)");
-    if (skriveno) {
-      skriveno.value = opis.join("; ") + (opis.length ? " | " : "") +
-        "Ukupno: " + ukupnoM2.toFixed(2) + " m², " + formatDin(ukupno) +
-        (preuzimanje.checked ? ", SA preuzimanjem" : ", BEZ preuzimanja");
-    }
+    window.PERIL_OBRACUN = ukupnoM2 > 0
+      ? opis.join("\n") + "\nUkupno: " + ukupnoM2.toFixed(2).replace(".", ",") + " m² = " + formatDin(ukupno) +
+        "\nPreuzimanje na adresi: " + (preuzimanje.checked ? "DA (220 din/m²)" : "NE, donosim sam (190 din/m²)")
+      : "";
+    if (porudzbina) porudzbina.hidden = ukupnoM2 <= 0;
   }
 
   dodaj.addEventListener("click", function () { noviTepih(); izracunaj(); });
   preuzimanje.addEventListener("change", izracunaj);
   noviTepih();
   izracunaj();
+}
+
+// ---------------- Slanje formi na telefon (WhatsApp ili SMS) ----------------
+// Broj na koji stižu porudžbine i upiti (međunarodni format, bez +)
+var BROJ_ZA_PORUKE = "381631951501";
+
+function initForme() {
+  document.querySelectorAll(".forma-poruka").forEach(function (forma) {
+    var slika = forma.querySelector(".slika-polje");
+    var slikaInfo = forma.querySelector(".slika-info");
+    if (slika && slikaInfo) {
+      slika.addEventListener("change", function () {
+        if (slika.files.length) {
+          slikaInfo.textContent = "Izabrana slika: " + slika.files[0].name +
+            ". Priložite je u razgovoru odmah posle poruke (ikonica spajalice ili kamere).";
+        }
+      });
+    }
+
+    forma.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var ok = true;
+      forma.querySelectorAll("[required]").forEach(function (polje) {
+        var prazno = !polje.value.trim();
+        polje.classList.toggle("greska", prazno);
+        if (prazno && ok) { polje.focus(); ok = false; }
+      });
+      if (!ok) return;
+
+      var usluga = forma.dataset.usluga;
+      var naslov = usluga === "Pranje tepiha" ? "NOVA PORUDŽBINA – Pranje tepiha" : "NOVI UPIT – " + usluga;
+      var linije = [naslov, ""];
+      forma.querySelectorAll("[data-label]").forEach(function (polje) {
+        linije.push(polje.dataset.label + ": " + polje.value.trim());
+      });
+      if (usluga === "Pranje tepiha" && window.PERIL_OBRACUN) {
+        linije.push("", window.PERIL_OBRACUN);
+      }
+      if (slika && slika.files.length) linije.push("", "(Šaljem i sliku površine)");
+      var tekst = encodeURIComponent(linije.join("\n"));
+
+      var kanal = e.submitter ? e.submitter.value : "whatsapp";
+      window.location.href = kanal === "sms"
+        ? "sms:+" + BROJ_ZA_PORUKE + "?&body=" + tekst
+        : "https://wa.me/" + BROJ_ZA_PORUKE + "?text=" + tekst;
+    });
+  });
 }

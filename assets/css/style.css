@@ -159,3 +159,13 @@ a.kartica:hover { transform: translateY(-4px); }
 .footer .logo { color: #fff; }
 
 .poruka-ok { background: #e7f8ef; border: 1px solid #9fdcb9; color: #1c6b40; padding: 14px; border-radius: 10px; }
+
+/* Slanje poruke */
+.slanje { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (max-width: 480px) { .slanje { grid-template-columns: 1fr; } }
+.btn-wa { background: #25d366; color: #fff; }
+.napomena-slanje { display: block; text-align: center; color: var(--siva); margin-top: 10px; font-size: .85rem; }
+.polje small { display: block; margin-top: 6px; }
+.polje input[type=file] { width: 100%; padding: 10px; border: 1px dashed var(--ivica); border-radius: 10px; background: var(--pozadina); font: inherit; font-size: .9rem; }
+.polje input.greska { border-color: #d93636; background: #fff5f5; }
+.slanje .btn { padding: 14px 16px; }
